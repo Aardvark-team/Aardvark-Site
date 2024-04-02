@@ -32,6 +32,7 @@ body {
 
 body {
     position: relative;
+    overflow-y: hidden;
 }
 
 nav {
@@ -42,6 +43,10 @@ nav {
     border-bottom: 1px solid var(--fg-default);
     position: relative;
     z-index: 1;
+}
+
+nav .spacer {
+    flex: 1;
 }
 
 nav .logo {
@@ -59,9 +64,22 @@ nav .title {
 
 nav .navigation {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
     gap: 16px;
+}
+
+nav .hamburger {
+    width: 32px;
+    height: 32px;
+    color: var(--fg-default);
+    padding: 8px;
+    border: 2px solid var(--fg-default);
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-width: 32px;
+    
+    display: none;
 }
 
 nav .navigation a {
@@ -215,34 +233,6 @@ main .card-container {
     text-align: justify;
 }
 
-@media screen and (max-width: 1215px) {
-    main .main-split {
-        flex-direction: column;
-        margin-bottom: 64px;
-        align-items: center;
-        padding-top: 64px;
-        padding-bottom: 32px;
-        height: unset;
-    }
-
-    main .split-code {
-        width: 100%;
-    }
-
-    .split-code .code-examples {
-        width: 100%;
-    }
-
-    .card-container .spacer {
-        display: none;
-    }
-
-    .card-container .card {
-        flex: 1;
-        width: unset;
-    }
-}
-
 button {
     background: var(--fg-dimmer);
     color: var(--bg-root);
@@ -283,6 +273,14 @@ footer {
 }
 
 footer .tagline {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    max-height: 1.5rem;
+    word-break: break-all;
     color: var(--fg-dimmest);
 }
 
@@ -290,6 +288,57 @@ footer .copyright {
     display: flex;
     flex: 1;
     justify-content: flex-end;
+    min-width: 240px;
+}
+
+@media screen and (max-width: 1215px) {
+    main .main-split {
+        flex-direction: column;
+        margin-bottom: 64px;
+        align-items: center;
+        padding-top: 64px;
+        padding-bottom: 32px;
+        height: unset;
+    }
+
+    main .split-code {
+        width: 100%;
+    }
+
+    .split-code .code-examples {
+        width: 100%;
+    }
+
+    .card-container .spacer {
+        display: none;
+    }
+
+    .card-container .card {
+        flex: 1;
+        width: unset;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .code-examples .example-code {
+        border-top-right-radius: 0;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    main {
+        padding: 16px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    nav .hamburger {
+        display: flex;
+    }
+
+    nav .navigation {
+        display: none;
+    }
 }
 
 .blur-layer {
