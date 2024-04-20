@@ -84,26 +84,10 @@
                 <div class="split-code">
                     <div class="code-examples">
                         <div class="example-list">
-                            <div class="example selected">HTTP Server</div>
-                            <div class="example">CLI App</div>
                         </div>
-                        <div class="example-code">
-                            <pre>
-import http from std
-import file from std
+                        <pre class="example-code">
 
-function handle(request) {
-    if std.http.path(request) {
-        return new std.File(
-            std.http.getPath(request)
-        ).readAll()
-    }
-    let url = std.http.url(request)
-    if url = “mysite.com”
-        return new std.File(“index.html”).get
-}</pre
-                            >
-                        </div>
+                        </pre>
                     </div>
                 </div>
             </div>
@@ -190,5 +174,7 @@ function handle(request) {
                 style="background: var(--blur-green); left: 30%; top: 1200px"
             ></div>
         </div>
+        <script src="highlight.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>

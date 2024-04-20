@@ -150,7 +150,7 @@ main .example-code {
 	padding: 16px;
 	height: 370px;
 	font-size: 20px;
-	overflow: hidden;
+	/* overflow-x; */
 }
 
 .example-code pre {
@@ -341,7 +341,7 @@ footer .copyright {
 }
 
 .blur-layer {
-	position: absolute;
+	position: absolute; /* change to fixed? */
 	top: 0;
 	left: 0;
 	width: 100vw;
