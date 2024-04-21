@@ -150,10 +150,7 @@ main .example-code {
 	padding: 16px;
 	height: 370px;
 	font-size: 20px;
-	/* overflow-x; */
-}
-
-.example-code pre {
+	overflow: scroll;
 	margin: 0;
 }
 
@@ -243,6 +240,7 @@ button {
 	font-weight: bold;
 	cursor: pointer;
 	border: 4px solid transparent;
+	transition: 0.25s;
 }
 
 button:hover {
@@ -259,7 +257,7 @@ button:active {
 			)
 			border-box;
 
-	animation: grad-border 2s linear infinite;
+	/* animation: grad-border 2s linear infinite; */
 }
 
 footer {

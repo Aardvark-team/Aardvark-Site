@@ -1,4 +1,8 @@
+import { Highlight } from "./highlight.js";
+let exampleCodeElement = document.querySelector(".example-code");
+let exampleListElement = document.querySelector(".example-list");
 let examples = [];
+
 class Example {
 	constructor(name, code) {
 		this.name = name;
@@ -40,8 +44,6 @@ let box = document.Element({
 box.text = "Hello, World!"
 `
 );
-let exampleCodeElement = document.querySelector(".example-code");
-let exampleListElement = document.querySelector(".example-list");
 
 function initExamples() {
 	for (let example of examples) {

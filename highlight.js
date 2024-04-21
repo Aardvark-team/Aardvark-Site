@@ -1,4 +1,4 @@
-TokenTypes = [
+let TokenTypes = [
 	"String",
 	"Number",
 	"Keyword",
@@ -10,8 +10,8 @@ TokenTypes = [
 	"LineBreak",
 	"Boolean",
 ];
-Booleans = ["true", "false"];
-PureOperators = [
+let Booleans = ["true", "false"];
+let PureOperators = [
 	"=", // equals
 	"!", // not,
 	"~", // about
@@ -45,8 +45,8 @@ PureOperators = [
 	"...",
 ];
 
-Operators = PureOperators.concat(["not", "and", "or", "xor", "in"]);
-OrderOfOps = {
+let Operators = PureOperators.concat(["not", "and", "or", "xor", "in"]);
+let OrderOfOps = {
 	0: ["?"],
 	1: ["~", "!", "@", "..."],
 	2: ["^"],
@@ -58,9 +58,9 @@ OrderOfOps = {
 	8: ["&", "|", "x|", "and", "or", "xor", "->"],
 };
 
-Quotes = ['"', "'", "`"];
+let Quotes = ['"', "'", "`"];
 
-Whitespaces = [
+let Whitespaces = [
 	" ",
 	"\t",
 	"​",
@@ -76,9 +76,9 @@ Whitespaces = [
 	"⠀",
 ];
 
-Delimiters = [":", "(", ")", ",", "{", "}", "[", "]", "."];
+let Delimiters = [":", "(", ")", ",", "{", "}", "[", "]", "."];
 
-Keywords = [
+let Keywords = [
 	"class",
 	"extends",
 	// 'type',
@@ -350,10 +350,10 @@ function Style(style, code) {
 function Highlight(code, opts = {}) {
 	let lexer = new Lexer("#", "#*", "*#", true);
 	lexer.tokenize(code);
-	line = opts["startline"] || 1;
-	output = "";
-	toknum = 0;
-	last = 0;
+	let line = opts.startline || 1;
+	let output = "";
+	let toknum = 0;
+	let last = 0;
 	for (let token of lexer.output) {
 		if (token.start > last + 1) {
 			output += Style("default", code.slice(last + 1, token.start));
@@ -420,3 +420,5 @@ function HighlightAll() {
 // ~5.432345
 // `;
 // console.log(Highlight(testtext));
+
+export { HighlightAll, Highlight, Style };
