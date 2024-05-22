@@ -16,6 +16,18 @@
 	--blur-green: #66edbc;
 }
 
+::-webkit-scrollbar {
+	background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--bg-higher);
+}
+
 * {
 	box-sizing: border-box;
 	font-family: var(--font-default);
@@ -150,7 +162,7 @@ main .example-code {
 	padding: 16px;
 	height: 370px;
 	font-size: 20px;
-	overflow: scroll;
+	overflow: auto;
 	margin: 0;
 }
 
