@@ -1,5 +1,7 @@
+import { defineConfig } from "vite"
+
 // vite.config.js
-export default {
+export default defineConfig({
 	build: {
 		rollupOptions: {
 			input: {
@@ -9,4 +11,5 @@ export default {
 		},
 		target: ["safari15", "chrome89", "edge89", "es2022", "firefox89"],
 	},
-};
+	base: "/Aardvark-Site/"
+});
