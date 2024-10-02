@@ -11,6 +11,8 @@
 	--fg-dimmer: #ccc;
 	--fg-dimmest: #aaa;
 
+	--outline-dimmest: #505050cc;
+
 	--blur-purple: #4d27e1;
 	--blur-red: #d15151;
 	--blur-green: #66edbc;
@@ -52,7 +54,7 @@ nav {
 	padding: 16px 32px;
 	gap: 16px;
 	align-items: center;
-	border-bottom: 1px solid var(--fg-default);
+	border-bottom: 1px solid var(--outline-dimmest);
 	position: relative;
 	z-index: 1;
 }
@@ -82,9 +84,9 @@ nav .navigation {
 nav .hamburger {
 	width: 32px;
 	height: 32px;
-	color: var(--fg-default);
+	color: var(--fg-dimmest);
 	padding: 8px;
-	border: 2px solid var(--fg-default);
+	border: 2px solid var(--fg-dimmest);
 	border-radius: 8px;
 	align-items: center;
 	justify-content: center;
@@ -210,7 +212,7 @@ main .card-container {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
-	border: 1px solid var(--fg-dimmest);
+	border: 1px solid var(--outline-dimmest);
 }
 
 .card-container > * {
@@ -253,28 +255,34 @@ button {
 	font-weight: bold;
 	cursor: pointer;
 	border: 4px solid transparent;
-	transition: 0.25s;
 }
 
 button:hover {
-	background: var(--fg-default);
-}
+	--bg-angle: 0deg;
 
-button:active {
 	background: linear-gradient(var(--fg-default), var(--fg-default)) padding-box,
-		linear-gradient(
-				90deg,
-				var(--blur-purple),
-				var(--blur-green),
-				var(--blur-red)
+		conic-gradient(
+				from var(--bg-angle) in oklch longer hue,
+				oklch(0.6 0.2 0) 0 0
 			)
 			border-box;
+	animation: rotating-border 3s linear infinite;
+}
 
-	/* animation: grad-border 2s linear infinite; */
+@property --bg-angle {
+	inherits: false;
+	initial-value: 0deg;
+	syntax: "<angle>";
+}
+
+@keyframes rotating-border {
+	to {
+		--bg-angle: 360deg;
+	}
 }
 
 footer {
-	border-top: 1px solid var(--fg-default);
+	border-top: 1px solid var(--outline-dimmest);
 	height: 64px;
 	display: flex;
 	align-items: center;
@@ -373,6 +381,7 @@ footer .copyright {
 	position: absolute;
 	width: 400px;
 	height: 400px;
+	opacity: 0.3;
 	border-radius: 100000vw;
 }
 
@@ -381,4 +390,5 @@ footer .copyright {
 	width: 550px;
 	height: 550px;
 	border-radius: 100000vw;
+	opacity: 0.5;
 }
