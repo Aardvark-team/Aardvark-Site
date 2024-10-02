@@ -129,6 +129,7 @@ main .split-code {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	overflow: hidden;
 }
 
 main .title {
@@ -150,7 +151,7 @@ main .code-examples {
 	display: flex;
 	flex-direction: column;
 	height: 415px;
-	width: 535px;
+	width: 100%;
 }
 
 main .example-code {
@@ -209,6 +210,7 @@ main .card-container {
 	display: flex;
 	flex-direction: column;
 	gap: 16px;
+	border: 1px solid var(--fg-dimmest);
 }
 
 .card-container > * {
@@ -239,7 +241,6 @@ main .card-container {
 
 .card .card-content {
 	font-size: 20px;
-	text-align: justify;
 }
 
 button {

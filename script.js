@@ -16,16 +16,15 @@ new Example(
 	`
 include webr
 
-let server = webr.Server(protocols=[webr.protocol.HTTP])
+let server = webr.Server(
+  protocols=[webr.protocol.HTTP]
+)
 
 sever.route("/", function handler(request) {
     return "Hello, World!"
 })
-server.listen("localhost", 8000)
 
-#*
-Hello
-Hi*#
+server.listen("localhost", 8000)
 `
 );
 new Example(
